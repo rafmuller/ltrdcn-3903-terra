@@ -1,33 +1,33 @@
 ---
 vxlan-ciscolive:
   devices:
-    - name: CLleaf2
+    - name: staging-leaf2
       interfaces:
         - id: 'lo0'
           description: 'Routing Loopback'
           layer: Layer3
-          ip: '10.0.0.3/32'
-          peering_ip: '10.0.0.3'
+          ip: '10.0.0.102/32'
+          peering_ip: '10.0.0.102'
           link_type: underlay-lo
         - id: 'lo1'
           description: 'VTEP Loopback'
           layer: Layer3
-          ip: '10.100.100.3/32'
-          peering_ip: '10.100.100.3'
+          ip: '10.100.100.102/32'
+          peering_ip: '10.100.100.102'
           link_type: underlay-lo
-        - id: 'eth1/1'
-          description: 'Uplink to Spine'
+        - id: 'eth1/10'
+          description: 'To S1 Eth1/2'
           mtu: 9216
           speed: auto
-          ip: '10.1.1.6/30'
+          ip: '10.1.1.3/31'
           link_type: underlay-l3
           admin_state: up
-        - id: 'eth1/3'
-          admin_state: up
-          description: 'AlpineLinuxVM'
-          mtu: 9216
-          speed: auto
-          layer: Layer2
-          link_type: service-l2
-          l2_mode: trunk
-          vlans: '100-101,200'
+        # - id: 'eth1/3'
+        #   admin_state: up
+        #   description: 'AlpineLinuxVM'
+        #   mtu: 9216
+        #   speed: auto
+        #   layer: Layer2
+        #   link_type: service-l2
+        #   l2_mode: trunk
+        #   vlans: '100-101,200'
