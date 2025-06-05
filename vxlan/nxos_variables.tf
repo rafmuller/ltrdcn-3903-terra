@@ -32,3 +32,8 @@ variable "save_config" {
   type        = bool
   default     = false
 }
+
+output "model" {
+  description = "model values"
+  value = local.model
+}
