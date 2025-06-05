@@ -1,5 +1,5 @@
 ---
 vxlan-ciscolive:
   bgp_global:
-    bgp_asn: 65000
+    bgp_asn: 65001
     vrf: default
