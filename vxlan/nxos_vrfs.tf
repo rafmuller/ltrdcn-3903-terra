@@ -1,9 +1,9 @@
 locals {
 
-  vrf_map = { for vrf in try(local.networks.vrfs, []) : vrf.name => vrf }
+  vrf_map = { for vrf in try(local.overlays.vrfs, []) : vrf.name => vrf }
 
   vrfs = flatten([
-    for vrf in try(local.networks.vrfs, []) : [
+    for vrf in try(local.overlays.vrfs, []) : [
       for attach in try(vrf.attach, []) : {
         key         = format("%s-%s-%s", attach.name, vrf.name, vrf.vni)
         name        = vrf.name
