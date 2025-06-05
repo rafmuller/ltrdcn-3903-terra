@@ -1,9 +1,9 @@
 locals {
 
-  vlan_map = { for vlan in try(local.networks.vlans, []) : vlan.vlan_id => vlan }
+  vlan_map = { for vlan in try(local.overlays.vlans, []) : vlan.vlan_id => vlan }
 
   vrf_segments = flatten([
-    for vrf in try(local.networks.vrfs, []) : [
+    for vrf in try(local.overlays.vrfs, []) : [
       for attach in try(vrf.attach, []) : {
         key         = format("%s-%s", attach.name, vrf.vni)
         name        = vrf.name
@@ -17,7 +17,7 @@ locals {
 
 
   vlans = flatten([
-    for vlan in try(local.networks.vlans, []) : [
+    for vlan in try(local.overlays.vlans, []) : [
       for attach in try(vlan.attach, []) : {
         key         = format("%s-%s-%s", attach.name, vlan.vlan_id, local.vrf_map[vlan.vrf_name].vni)
         name        = vlan.name
