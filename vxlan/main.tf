@@ -60,6 +60,6 @@ terraform {
 
 provider "nxos" {
   username = "admin"
-  password = "cisco"
+  password = "cisco.123"
   devices  = local.devices
 }
