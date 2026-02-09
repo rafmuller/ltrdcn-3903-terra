@@ -39,7 +39,7 @@ resource "nxos_save_config" "save_config" {
     nxos_ospf_interface.ospf_interface_vtep_loopback,
     nxos_ospf_interface.ospf_interface_physical,
     nxos_pim_static_rp_group_list.vxlan_pim_static_rp_group_list,
-    nxos_route_map_rule_entry_match_tag.vxlan_tag_route_map_rule_entry_match_tag,
+    # nxos_route_map_rule_entry_match_tag.vxlan_tag_route_map_rule_entry_match_tag,
     nxos_vrf_route_target.vxlan_vrf_route_target_ipv4ucast_import,
     nxos_vrf_route_target.vxlan_vrf_route_target_l2evpn_ipv4_import,
   ]
